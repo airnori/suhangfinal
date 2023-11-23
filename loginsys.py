@@ -26,7 +26,7 @@ def load_user(user_id):
 @app.route('/')
 @login_required
 def home():
-    return render_template('home.html', name=current_user.username)
+    return render_template('/html/home.html', name=current_user.username)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -52,7 +52,7 @@ def login():
                 password_invalid = True
                 return redirect(url_for('login'))
             
-    return render_template('login.html')
+    return render_template('/html/login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -72,7 +72,7 @@ def signup():
             db.session.commit()
             return redirect(url_for('login'))
 
-    return render_template('signup.html', username_exists=username_exists)
+    return render_template('/html/signup.html', username_exists=username_exists)
 
 @app.route('/logout')
 @login_required
@@ -83,7 +83,7 @@ def logout():
 @app.route('/chatbot')
 @login_required
 def chatbot():
-
+    jedol5_server()
 
 if __name__ == '__main__':
     with app.app_context():
