@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form method="POST">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    
+    {% if username_exists %}
+    <p>Username already exists. Please choose another username.</p>
+    {% endif %}
+</body>
+</html>
+
+    
+    <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+
+
+</body>
+</html>
