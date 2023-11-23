@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import flash
+import jedol5_server
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -78,6 +79,11 @@ def signup():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@app.route('/chatbot')
+@login_required
+def chatbot():
+
 
 if __name__ == '__main__':
     with app.app_context():
